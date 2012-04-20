@@ -16,7 +16,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 	{
 		$ws = new Client('', '', FALSE);
 		$servers = $ws->getServers();
-		$this->assertEquals('giantmedia', $servers[0]->name);
+		$this->assertObjectHasAttribute('server_name', $servers[0]->server);
 	}
 	
 	

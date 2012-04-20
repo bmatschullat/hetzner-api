@@ -100,7 +100,7 @@ class Client {
 		
 		if ($response_code >= 400 && $response_code <= 503)
 		{
-			throw new \Hetzner\Api\WebserviceException($response->error->message, $response->error->code);
+			throw new \Hetzner\Api\WebserviceException($response->error->message. ' {'. $response->error->code . '}', $response_code);
 		}
 		
 		return array(
@@ -134,7 +134,8 @@ class Client {
 	 */
 	public function getServers()
 	{
-		return $this->_request($this->_webservice_url . 'server/');
+		$response = $this->_request($this->_webservice_url . 'server/');
+		return $response['response'];
 	}
 	
 	
