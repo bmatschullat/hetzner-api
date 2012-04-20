@@ -26,7 +26,7 @@ class Client {
 	 * @param string $password
 	 * @param $verbose
 	 */
-	public function __construct(string $login, string $password, $verbose)
+	public function __construct($login, $password, $verbose)
 	{
 		$this->_curl = curl_init();
 		$this->auth($login, $password);
@@ -52,7 +52,7 @@ class Client {
 	 * @param string $type
 	 * @throws \Hetzner\Api\WebserviceException
 	 */
-	protected function _request(string $url, string $type = 'GET')
+	protected function _request($url, $type = 'GET')
 	{
 		switch ($type) {
 			case 'POST':
@@ -122,7 +122,7 @@ class Client {
 	 * @param string $login
 	 * @param string $password
 	 */
-	public function auth(string $login, string $password)
+	public function auth($login, $password)
 	{
 		curl_setopt($this->curl, CURLOPT_USERPWD, $login . ':' . $password);
 	}
