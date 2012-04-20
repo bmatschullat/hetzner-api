@@ -1,0 +1,13 @@
+{
+    "name": "bmatschullat/hetzner-api",
+    "description": "unofficial hetzner.de api library",
+    "require": {
+        "php": "5.3.3"
+    },
+    "authors": [
+        {
+            "name": "Bennet Matschullat",
+            "email": "bennet.matschullat@gmail.com"
+        }
+    ]
+}

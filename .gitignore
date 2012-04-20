@@ -1,3 +1,9 @@
 /.buildpath
 /.project
 /.settings/*
+
+# composer.json files
+composer.phar
+*.lock
+
+vendor
