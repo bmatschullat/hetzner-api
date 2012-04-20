@@ -15,7 +15,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 	public function testGetName()
 	{
 		$ws = new Client('', '', FALSE);
-		$servers = $cli->getServers();
+		$servers = $ws->getServers();
 		$this->assertEquals('giantmedia', $servers[0]->name);
 	}
 	
