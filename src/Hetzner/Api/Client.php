@@ -30,8 +30,8 @@ class Client {
 	{
 		$this->_curl = curl_init();
 		$this->auth($login, $password);
-		curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($this->curl, CURLOPT_VERBOSE, $verbose);
+		curl_setopt($this->_curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($this->_curl, CURLOPT_VERBOSE, $verbose);
 	}
 	
 	
@@ -124,7 +124,7 @@ class Client {
 	 */
 	public function auth($login, $password)
 	{
-		curl_setopt($this->curl, CURLOPT_USERPWD, $login . ':' . $password);
+		curl_setopt($this->_curl, CURLOPT_USERPWD, $login . ':' . $password);
 	}
 	
 
