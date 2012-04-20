@@ -80,7 +80,7 @@ class Client {
 		
 		if (FALSE === $response)
 		{
-			throw new \Hetzner\Api\WebserviceException('robot not reachable', 'NOT_REACHABLE');
+			throw new \Hetzner\Api\WebserviceException('NOT_REACHABLE');
 		}
 		
 		
@@ -95,7 +95,7 @@ class Client {
 		
 		if (NULL === $response)
 		{
-			throw new \Hetzner\Api\WebserviceException('response can not be decoded', 'RESPONSE_DECODE_ERROR');
+			throw new \Hetzner\Api\WebserviceException('RESPONSE_DECODE_ERROR');
 		}
 		
 		if ($response_code >= 400 && $response_code <= 503)
