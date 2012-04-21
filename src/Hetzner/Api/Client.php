@@ -66,7 +66,7 @@ class Client {
 				break;
 				
 			default:
-				throw new \Hetzner\Api\WebserviceException('wrong request tyep [PUT,DELETE,GET,POST]');
+				throw new \Hetzner\Api\WebserviceException('wrong request type [PUT,DELETE,GET,POST]');
 				break;
 		}
 		curl_setopt($this->_curl, CURLOPT_CUSTOMREQUEST, $type);
@@ -110,9 +110,24 @@ class Client {
 	}
 	
 	
-	private function getHttpHeaders()
+	/**
+	 * 
+	 * Enter description here ...
+	 */
+	public function getHttpHeaders()
 	{
 		return $this->_http_headers;	
+	}
+	
+	
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param array $headers
+	 */
+	public function setHttpHeaders(array $headers)
+	{
+		$this->_http_headers = $headers;
 	}
 	
 	
@@ -136,6 +151,23 @@ class Client {
 	{
 		$response = $this->_request($this->_webservice_url . 'server/');
 		return $response['response'];
+	}
+	
+	
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param unknown_type $ip
+	 * @throws \Hetzner\Api\WebserviceException
+	 */
+	public function getServerInformations($ip)
+	{
+		if(filter_var($ip, FILTER_VALIDATE_IP))
+		{
+			$response = $this->_request($this->_webservice_url . 'server/' . $ip);
+			return $response['response']->server;
+		}
+		else throw new \Hetzner\Api\WebserviceException('ip is invalid');
 	}
 	
 	
